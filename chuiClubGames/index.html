@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Trivia Game for Kids</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Age Selection Screen -->
+        <div id="ageSelection" class="screen active">
+            <div class="background-decorations">
+                <div class="decoration cloud">☁️</div>
+                <div class="decoration star">⭐</div>
+                <div class="decoration rainbow">🌈</div>
+                <div class="decoration sun">☀️</div>
+            </div>
+            
+            <div class="game-card">
+                <div class="header">
+                    <h1>📖 Bible Trivia 📖</h1>
+                    <p>Choose your age group to start!</p>
+                </div>
+                
+                <div class="age-buttons">
+                    <button class="age-btn lower-age" onclick="selectAge('lower')">
+                        🧸 Ages 1-7 🧸
+                        <div class="subtitle">Fun & Simple Questions</div>
+                    </button>
+                    
+                    <button class="age-btn upper-age" onclick="selectAge('upper')">
+                        🎓 Ages 8-10 🎓
+                        <div class="subtitle">Challenge Questions</div>
+                    </button>
+                </div>
+                
+                <div class="cross-icon">✝️</div>
+            </div>
+        </div>
+
+        <!-- Timer Setup Screen -->
+        <div id="timerSetup" class="screen">
+            <div class="background-decorations timer-bg">
+                <div class="decoration star-spin">⭐</div>
+                <div class="decoration music">🎵</div>
+                <div class="decoration sparkle">💫</div>
+                <div class="decoration star-bounce">🌟</div>
+            </div>
+
+            <div class="game-card timer-card">
+                <div class="header">
+                    <div class="clock-icon">⏰</div>
+                    <h2>⏰ Set Timer ⏰</h2>
+                    <p>How much time per question?</p>
+                </div>
+
+                <div class="timer-controls">
+                    <div class="time-display" id="timeDisplay">30s</div>
+                    <input type="range" id="timeSlider" min="10" max="300" value="30" class="slider">
+                    <div class="slider-labels">
+                        <span>10s</span>
+                        <span>5min</span>
+                    </div>
+                </div>
+
+                <button class="start-btn" onclick="startGame()">
+                    🚀 Start Playing! 🚀
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="background-decorations game-bg">
+                <div class="decoration dove">🕊️</div>
+                <div class="decoration sparkle-pulse">✨</div>
+                <div class="decoration rainbow-bounce">🌈</div>
+                <div class="decoration star-pulse">⭐</div>
+                <div class="decoration star-small">🌟</div>
+                <div class="decoration sparkle-small">💫</div>
+            </div>
+
+            <!-- Header -->
+            <div class="game-header">
+                <div class="score-section">
+                    <span class="trophy">🏆</span>
+                    <span class="score-text">Score: <span id="scoreValue">0</span></span>
+                </div>
+                <div class="question-counter">
+                    <div class="cross-small">✝️</div>
+                    <div class="counter-text">Question <span id="currentQ">1</span> of <span id="totalQ">5</span></div>
+                </div>
+                <div class="timer-section">
+                    <span class="clock">⏰</span>
+                    <span class="timer-text" id="timerDisplay">30s</span>
+                </div>
+            </div>
+
+            <!-- Question -->
+            <div class="question-card">
+                <div class="book-icon">📖</div>
+                <h2 id="questionText">Loading question...</h2>
+            </div>
+
+            <!-- Answer Options -->
+            <div class="answers-grid" id="answersGrid">
+                <button class="answer-btn" onclick="selectAnswer(0)"></button>
+                <button class="answer-btn" onclick="selectAnswer(1)"></button>
+                <button class="answer-btn" onclick="selectAnswer(2)"></button>
+                <button class="answer-btn" onclick="selectAnswer(3)"></button>
+            </div>
+
+            <!-- Feedback -->
+            <div id="feedback" class="feedback-card hidden">
+                <div id="feedbackContent"></div>
+            </div>
+        </div>
+
+        <!-- Celebration Overlay -->
+        <div id="celebration" class="celebration-overlay hidden">
+            <div class="celebration-content">
+                <div class="celebration-icon">🎉</div>
+                <h2 class="celebration-text">CORRECT!</h2>
+                <div class="celebration-emojis">⭐ 🌟 ✨ 💫 🌈</div>
+            </div>
+        </div>
+
+        <!-- Restart Button -->
+        <button id="restartBtn" class="restart-btn" onclick="restartGame()" title="Restart Game">
+            🔄
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

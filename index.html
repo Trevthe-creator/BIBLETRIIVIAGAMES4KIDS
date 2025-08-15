@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joyful Bible Trivia ✨</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="confetti-canvas-wrapper">
+    <canvas id="confetti-canvas"></canvas>
+  </div>
+
+  <main class="container">
+    <!-- Welcome / Age Selection Screen -->
+    <section id="screen-welcome" class="screen active">
+      <div class="card big">
+        <h1 class="title">Joyful Bible Trivia 🎈</h1>
+        <p class="subtitle">Pick your age group to start!</p>
+
+        <div class="age-cards">
+          <button class="age-card" data-age="lower">
+            <img src="assets/jesus-kids.svg" alt="Kids with Bible"/>
+            <div>
+              <h2>Lower Class</h2>
+              <p>1–7 years</p>
+            </div>
+          </button>
+          <button class="age-card" data-age="upper">
+            <img src="assets/jesus-kids.svg" alt="Kids with Jesus"/>
+            <div>
+              <h2>Upper Class</h2>
+              <p>8–10 years</p>
+            </div>
+          </button>
+        </div>
+
+        <div class="tip">Fun tip: You can set how long each question lasts next! ⏳</div>
+      </div>
+    </section>
+
+    <!-- Settings Screen -->
+    <section id="screen-settings" class="screen">
+      <div class="card">
+        <h2 class="title-sm">Set Question Time</h2>
+        <div class="settings-grid">
+          <label class="field">
+            <span>Time Amount</span>
+            <input id="time-value" type="number" min="5" max="300" value="20" />
+          </label>
+
+          <label class="field">
+            <span>Units</span>
+            <select id="time-unit">
+              <option value="seconds" selected>Seconds</option>
+              <option value="minutes">Minutes</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="btn-start" class="btn primary">Start Game ▶</button>
+          <button id="btn-back" class="btn">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Screen -->
+    <section id="screen-quiz" class="screen">
+      <div class="hud">
+        <div class="hud-item">
+          <span>Age:</span>
+          <strong id="hud-age">—</strong>
+        </div>
+        <div class="hud-item">
+          <span>Q:</span>
+          <strong id="hud-q">1</strong>/<span id="hud-total">—</span>
+        </div>
+        <div class="hud-item timer">
+          <span>Time:</span>
+          <strong id="hud-time">00</strong>
+        </div>
+        <div class="hud-item">
+          <span>Score:</span>
+          <strong id="hud-score">0</strong>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="question-wrap">
+          <img class="question-illustration" id="q-illustration" src="assets/cartoon-bible.svg" alt="Bible cartoon">
+          <h2 id="question-text">Question goes here</h2>
+        </div>
+        <div id="choices" class="choices"></div>
+        <div id="feedback" class="feedback"></div>
+      </div>
+    </section>
+
+    <!-- Results Screen -->
+    <section id="screen-results" class="screen">
+      <div class="card big">
+        <h2 class="title">Great job! 🎉</h2>
+        <p class="subtitle">Your score:</p>
+        <div class="score-box">
+          <span id="final-score">0</span> / <span id="final-total">0</span>
+        </div>
+        <div class="actions">
+          <button id="btn-replay" class="btn primary">Play Again</button>
+          <button id="btn-home" class="btn">Home</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 1rem;
+    position: relative;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Background Decorations */
+.background-decorations {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.decoration {
+    position: absolute;
+    font-size: 3rem;
+}
+
+/* Age Selection Background */
+#ageSelection {
+    background: linear-gradient(135deg, #87CEEB 0%, #4A90E2 50%, #9B59B6 100%);
+}
+
+.cloud {
+    top: 2.5rem;
+    left: 2.5rem;
+    animation: bounce 2s infinite;
+}
+
+.star {
+    top: 5rem;
+    right: 5rem;
+    animation: pulse 2s infinite;
+}
+
+.rainbow {
+    bottom: 5rem;
+    left: 5rem;
+    animation: bounce 2s infinite 1s;
+}
+
+.sun {
+    bottom: 2.5rem;
+    right: 2.5rem;
+    animation: pulse 2s infinite 0.5s;
+}
+
+/* Timer Setup Background */
+.timer-bg {
+    background: linear-gradient(135deg, #FFB347 0%, #FFEB3B 50%, #FF69B4 100%);
+}
+
+.star-spin {
+    top: 4rem;
+    left: 4rem;
+    animation: spin 3s linear infinite;
+}
+
+.music {
+    top: 8rem;
+    right: 6rem;
+    font-size: 2.5rem;
+    animation: bounce 2s infinite;
+}
+
+.sparkle {
+    bottom: 8rem;
+    left: 6rem;
+    animation: pulse 2s infinite;
+}
+
+.star-bounce {
+    bottom: 4rem;
+    right: 4rem;
+    animation: bounce 2s infinite 0.7s;
+}
+
+/* Game Background */
+.game-bg {
+    background: linear-gradient(135deg, #87CEEB 0%, #9B59B6 50%, #FF69B4 100%);
+}
+
+.dove {
+    top: 2rem;
+    left: 2rem;
+    animation: bounce 2s infinite;
+}
+
+.sparkle-pulse {
+    top: 4rem;
+    right: 4rem;
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+.rainbow-bounce {
+    bottom: 4rem;
+    left: 3rem;
+    animation: bounce 2s infinite 0.5s;
+}
+
+.star-pulse {
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    animation: pulse 2s infinite 1s;
+}
+
+.star-small {
+    top: 50%;
+    left: 1rem;
+    font-size: 1rem;
+    animation: bounce 2s infinite 0.3s;
+}
+
+.sparkle-small {
+    top: 33%;
+    right: 1rem;
+    font-size: 1rem;
+    animation: pulse 2s infinite 0.7s;
+}
+
+/* Game Cards */
+.game-card {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 28rem;
+    width: 100%;
+    text-align: center;
+    position:sticky;
+    z-index: 10;
+    border: 6px solid #FFD700;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timer-card {
+    border-color: #FF8C00;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #6B46C1;
+    margin-bottom: 0.5rem;
+}
+
+.header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #EA580C;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.125rem;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+}
+
+/* Age Selection Buttons */
+.age-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.age-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: 4px solid;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+}
+
+.age-btn:hover {
+    transform: scale(1.05);
+}
+
+.lower-age {
+    background: linear-gradient(135deg, #F472B6, #EF4444);
+    border-color: #F9A8D4;
+}
+
+.lower-age:hover {
+    background: linear-gradient(135deg, #EC4899, #DC2626);
+}
+
+.upper-age {
+    background: linear-gradient(135deg, #34D399, #3B82F6);
+    border-color: #6EE7B7;
+}
+
+.upper-age:hover {
+    background: linear-gradient(135deg, #10B981, #2563EB);
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    font-weight: normal;
+    margin-top: 0.25rem;
+}
+
+.cross-icon {
+    font-size: 3.75rem;
+    animation: bounce 2s infinite;
+}
+
+/* Timer Controls */
+.clock-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.timer-controls {
+    margin-bottom: 1.5rem;
+}
+
+.time-display {
+    font-size: 3.75rem;
+    font-weight: bold;
+    color: #7C3AED;
+    margin-bottom: 1rem;
+}
+
+.slider {
+    width: 100%;
+    height: 0.75rem;
+    background: linear-gradient(135deg, #F8BBD9, #C084FC);
+    border-radius: 0.5rem;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.slider::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.start-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    border: 4px solid #A855F7;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.start-btn:hover {
+    background: linear-gradient(135deg, #6D28D9, #DB2777);
+    transform: scale(1.05);
+}
+
+/* Game Screen Layout */
+#gameScreen {
+    padding: 1rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+/* Game Header */
+.game-header {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 6px solid #FFD700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.score-section, .timer-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.trophy, .clock {
+    font-size: 2rem;
+}
+
+.score-text, .timer-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #6B46C1;
+}
+
+.timer-text.warning {
+    color: #DC2626;
+    animation: pulse 1s infinite;
+}
+
+.question-counter {
+    text-align: center;
+}
+
+.cross-small {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.counter-text {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Question Card */
+.question-card {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border: 6px solid #3B82F6;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.book-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#questionText {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1F2937;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Answer Grid */
+.answers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.answer-btn {
+    padding: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: 4px solid;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: rgb(121, 75, 75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.answer-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.option-letter {
+    font-size: 1.5rem;
+}
+
+.option-text {
+    text-align: center;
+}
+
+.option-a {
+    background: linear-gradient(135deg, #EF4444, #F472B6);
+    border-color: #FCA5A5;
+}
+
+.option-a:hover:not(:disabled) {
+    background: linear-gradient(135deg, #DC2626, #EC4899);
+}
+
+.option-b {
+    background: linear-gradient(135deg, #3B82F6, #06B6D4);
+    border-color: #93C5FD;
+}
+
+.option-b:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2563EB, #0891B2);
+}
+
+.option-c {
+    background: linear-gradient(135deg, #10B981, #34D399);
+    border-color: #6EE7B7;
+}
+
+.option-c:hover:not(:disabled) {
+    background: linear-gradient(135deg, #059669, #10B981);
+}
+
+.option-d {
+    background: linear-gradient(135deg, #8B5CF6, #6366F1);
+    border-color: #C4B5FD;
+}
+
+.option-d:hover:not(:disabled) {
+    background: linear-gradient(135deg, #7C3AED, #4F46E5);
+}
+
+/* Feedback States */
+.answer-btn.correct {
+    background: #10B981 !important;
+    border-color: #34D399 !important;
+    animation: pulse 1s infinite;
+}
+
+.answer-btn.incorrect {
+    background: #EF4444 !important;
+    border-color: #F87171 !important;
+}
+
+.answer-btn.disabled {
+    background: #D1D5DB !important;
+    color: #6B7280 !important;
+    border-color: #D1D5DB !important;
+    cursor: not-allowed;
+}
+
+/* Feedback Card */
+.feedback-card {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+    border: 6px solid #FFD700;
+    position: relative;
+    z-index: 10;
+}
+
+.feedback-card.hidden {
+    display: none;
+}
+
+.feedback-correct {
+    color: #059669;
+}
+
+.feedback-incorrect {
+    color: #EA580C;
+}
+
+.feedback-icon {
+    font-size: 3.75rem;
+    margin-bottom: 1rem;
+}
+
+.feedback-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-message {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.correct-answer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #059669;
+    margin-bottom: 1rem;
+}
+
+.encouragement {
+    font-size: 1.125rem;
+    color: #6B7280;
+}
+
+/* Celebration Overlay */
+.celebration-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.celebration-overlay.hidden {
+    display: none;
+}
+
+.celebration-content {
+    text-align: center;
+    animation: bounce 1s infinite;
+}
+
+.celebration-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.celebration-text {
+    font-size: 3.75rem;
+    font-weight: bold;
+    color: #FDE047;
+    margin-bottom: 1rem;
+}
+
+.celebration-emojis {
+    font-size: 2.5rem;
+}
+
+/* Restart Button */
+.restart-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    border: 4px solid #A855F7;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+    z-index: 20;
+}
+
+.restart-btn:hover {
+    background: linear-gradient(135deg, #6D28D9, #DB2777);
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .answers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #questionText {
+        font-size: 1.25rem;
+    }
+    
+    .answer-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .game-card {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .age-btn {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .time-display {
+        font-size: 3rem;
+    }
+    
+    .celebration-text {
+        font-size: 2.5rem;
+    }
+    
+    .celebration-icon {
+        font-size: 4rem;
+    }
+}
